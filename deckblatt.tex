@@ -1,0 +1,117 @@
+\documentclass[a4paper,DIV=9]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{moresize}
+\usepackage{etoolbox}
+\usepackage[
+activate={true,nocompatibility},
+final,
+tracking=true,
+kerning=true,
+spacing=true,
+]{microtype}
+\SetTracking{encoding={*}, shape=sc}{40}
+\usepackage{graphicx}
+\usepackage[symbol,para]{footmisc}
+\renewcommand\thempfootnote{\fnsymbol{mpfootnote}}
+\renewcommand{\baselinestretch}{1.7}
+\setlength{\lineskip}{0pt}
+\setlength{\parindent}{0pt}
+
+
+%% Fill in info here
+\newcommand*{\CourseTitle}{Analysis 1}
+\newcommand*{\Semester}{WiSe 19/20}
+
+%% Number of hand in
+\newcommand*{\CounterHandIn}{1}
+
+%% There has to be at least one team member
+\newcommand*{\FirstTeamMemberName}{Johanna}
+\newcommand*{\FirstTeamMemberSurname}{Exzellenzstudentin}
+\newcommand*{\FirstTeamMemberId}{00000000}
+
+%% Comment out if ther's no second team member
+\newcommand*{\SecondTeamMemberName}{Maximilian}
+\newcommand*{\SecondTeamMemberSurname}{Exzellenzstudent}
+\newcommand*{\SecondTeamMemberId}{00000000}
+
+%% Uncomment and fill in if there's a third author
+% \newcommand*{\ThirdTeamMemberName}{}
+% \newcommand*{\ThirdTeamMemberSurname}{}
+% \newcommand*{\ThirdTeamMemberId}{}
+
+
+
+\begin{document}
+\begin{titlepage}%
+
+  \IfFileExists{logos/tum.pdf}{%
+    \begin{minipage}[c][0.2\textheight][c]{.48\textwidth}
+      \flushleft%
+      \includegraphics[height=.13\textheight]{logos/tum.pdf}
+    \end{minipage}
+  }{%
+    \vspace*{.7cm}
+  }
+  \IfFileExists{logos/tum.pdf}{%
+    \IfFileExists{logos/faculty.pdf}{%
+      \begin{minipage}[c][0.2\textheight][c]{.48\textwidth}
+        \flushright%
+        \includegraphics[height=.13\textheight]{logos/faculty.pdf}
+      \end{minipage}
+    }{}
+  }{}
+
+  \vspace{1cm}
+  \flushleft%
+
+  \textsc{\HUGE \CourseTitle}
+
+  \vspace{2mm}
+  \textsc{\LARGE \Semester}
+
+  \vspace{2mm}
+  \textsc{\LARGE Abgabe Hausaufgaben \CounterHandIn}
+
+
+  \vspace{2cm}
+  \textsl{\Large \textsc{\FirstTeamMemberSurname},
+    \FirstTeamMemberName}\footnotemark[1]
+
+  \ifdef{\SecondTeamMemberSurname}{
+    \textsl{\Large \textsc{\SecondTeamMemberSurname},
+      \SecondTeamMemberName}\footnotemark[2]
+  }{}
+
+  \ifdef{\ThirdTeamMemberSurname}{
+    \textsl{\Large \textsc{\ThirdTeamMemberSurname},
+      \ThirdTeamMemberName}\footnotemark[3]
+  }{}
+
+  \vspace{2cm}
+  \textbf{\large Rückgabe in Gruppe 6}
+
+  \vspace{1cm}
+  Punkte/Sinnvoll bearbeitet:
+
+  \makebox[1.2cm]{\dotfill} von \makebox[1.2cm]{\dotfill} = \makebox[1.2cm]{\dotfill}\%
+
+  \vspace{.5cm}
+  Korrektor:\makebox[4cm]{\dotfill}
+
+  \vspace{\fill}
+  % \end{minipage}
+
+  \footnotetext[1]{\FirstTeamMemberId}
+  \ifdef{\SecondTeamMemberSurname}{
+    \footnotetext[2]{\SecondTeamMemberId}
+  }{}
+  \ifdef{\ThirdTeamMemberSurname}{
+    \footnotetext[3]{\ThirdTeamMemberId}
+  }{}
+
+\end{titlepage}
+\end{document}
