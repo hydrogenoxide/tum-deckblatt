@@ -19,6 +19,26 @@ spacing=true,
 \renewcommand{\baselinestretch}{1.7}
 \setlength{\lineskip}{0pt}
 \setlength{\parindent}{0pt}
+\usepackage{booktabs}
+\usepackage{forloop}
+
+\newcommand{\gradetable}[1]{
+  \edef\exercises{#1}
+  \edef\cols{\number\numexpr#1+1\relax}
+  \newcounter{ct}
+
+  \begin{tabular}{l*{\cols}{c}}
+    \toprule
+    Aufgabe & \forloop{ct}{1}{\not{\value{ct} > \exercises}}{
+              \thect & } $\Sigma$ \\
+    \midrule
+    Sinnvoll bearbeitet: & \forloop{ct}{1}{\not{\value{ct} > \exercises}}{
+                     & }  \\
+    Punkte: & \forloop{ct}{1}{\not{\value{ct} > \exercises}}{
+               & }  \\
+    \bottomrule
+  \end{tabular}
+}
 
 
 %% Fill in info here
@@ -80,7 +100,7 @@ spacing=true,
   \textsc{\LARGE Abgabe Hausaufgaben \CounterHandIn}
 
 
-  \vspace{2cm}
+  \vspace{1cm}
   \textsl{\Large \textsc{\FirstTeamMemberSurname},
     \FirstTeamMemberName}\footnotemark[1]
 
@@ -94,15 +114,13 @@ spacing=true,
       \ThirdTeamMemberName}\footnotemark[3]
   }{}
 
-  \vspace{2cm}
+  \vspace{1cm}
   \textbf{\large Rückgabe in Gruppe \RetrurnInGroup}
 
   \vspace{1cm}
-  Punkte/Sinnvoll bearbeitet:
+  \gradetable{4}
 
-  \makebox[1.2cm]{\dotfill} von \makebox[1.2cm]{\dotfill} = \makebox[1.2cm]{\dotfill}\%
-
-  \vspace{.5cm}
+  \vspace{1cm}
   Korrektor:\makebox[4cm]{\dotfill}
 
   \vspace{\fill}
