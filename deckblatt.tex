@@ -24,18 +24,18 @@ spacing=true,
 
 \newcommand{\gradetable}[1]{
   \edef\exercises{#1}
-  \edef\cols{\number\numexpr#1+1\relax}
+  \edef\cols{\number\numexpr#1+2\relax}
   \newcounter{ct}
 
   \begin{tabular}{l*{\cols}{c}}
     \toprule
     Aufgabe & \forloop{ct}{1}{\not{\value{ct} > \exercises}}{
-              \thect & } $\Sigma$ \\
+              \thect & } $\Sigma$ & \\
     \midrule
     Sinnvoll bearbeitet: & \forloop{ct}{1}{\not{\value{ct} > \exercises}}{
-                     & }  \\
+                     & }  & ($\Rightarrow$\quad\quad \%)\\
     Punkte: & \forloop{ct}{1}{\not{\value{ct} > \exercises}}{
-               & }  \\
+               & }  & ($\Rightarrow$\quad\quad \%)\\
     \bottomrule
   \end{tabular}
 }
